@@ -9,3 +9,10 @@ export interface ButtonProps {
     content: React.ReactNode,
     onClick?: ()=> void
 }
+
+export interface SliderProps {
+    sliderArr: string[],
+    slideWidth: number,
+    imgHeight: number,
+    imgClass?: string
+}

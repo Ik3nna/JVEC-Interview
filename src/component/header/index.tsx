@@ -19,8 +19,7 @@ const Header: React.FC = () => {
     const location = useLocation();
   
     const handleClick = () => {
-      navigate("/");
-      window.location.reload();
+      navigate("/home");
     }
 
     return (
