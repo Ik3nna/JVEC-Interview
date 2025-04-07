@@ -1,0 +1,8 @@
+.btn {
+    font-weight: 700;
+    color: var(--whiteHex);
+    cursor: pointer;
+}
+.btn:hover {
+    transform: scale(0.98);
+}

@@ -9,6 +9,8 @@
   --whiteHex: #FFFFFF;
   --grey1Hex: #BBBBBB;
   --grey2Hex: #D2D2D2;
+  --grey3Hex: #CFCFCF;
+  --bodyColorHex: #020412;
   --purpleBorderHex: #4169E1;
   --fontPoppins: "Poppins", sans-serif;
   --fontMontserrat: "Montserrat Alternates", sans-serif;
@@ -20,7 +22,7 @@ body, html {
   font-family: var(--fontPoppins);
   font-weight: 400;
   color: var(--whiteHex);
-  background-color: #020412;
+  background-color: var(--bodyColorHex);
 }
 ul {
   list-style: none;

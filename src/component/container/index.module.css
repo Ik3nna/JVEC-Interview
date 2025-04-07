@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 100%;
+}
+.small {
+    width: 80%;
+}
+.medium {
+    width: 90%;
+}
+.large {
+    width: 95%
+}
+
+
+
+@media (min-width: 1900px) {
+    .small {
+        width: 65%;
+    }
+    .medium {
+        width: 75%;
+    }
+    .large {
+        width: 80%;
+    }
+}
+@media (max-width: 1199px) {
+    .small {
+        width: 85%;
+    }
+    .medium {
+        width: 95%;
+    }
+}
