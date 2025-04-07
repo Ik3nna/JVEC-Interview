@@ -1,11 +1,8 @@
 .fixedNav {
-    background: transparent;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 .header {
     background: linear-gradient(90.18deg, #05071E 50.58%, #000080 79.08%, #111A89 90.72%);
