@@ -141,8 +141,22 @@ const Home: React.FC = () => {
         </motion.article>
       </motion.section>
 
-      <motion.section>
-        ujdkjk
+      <motion.section className={styles.container5} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+        <motion.h2 variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
+          Compliance Certifications/<br />Standards We Specialize In
+        </motion.h2>
+        <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
+          Elevate Your Organization's Security Posture with Our Compliance/Standards Consulting Services
+        </motion.p>
+        <MotionButton 
+          content="Contact Us"
+          variants={fadeUpVariant} 
+          transition={createTransition(1, 0.9)}
+          className={styles.learn_btn}
+        />
+        <article>
+          
+        </article>
       </motion.section>
     </main>
   )

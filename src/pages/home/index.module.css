@@ -308,11 +308,22 @@
 .container4 article:nth-of-type(2) > div > div div p {
     font-size: 20px;
 }
-
-
-
-
-
+.container5 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.container5 > p {
+    font-size: 24px;
+    max-width: 728px;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.container5 article {
+    background: linear-gradient(180deg, rgba(3, 2, 10, 0) 0%, #020106 26.32%, #03020A 89.86%, rgba(3, 2, 10, 0) 98.27%);
+}
 
 
 
@@ -464,6 +475,9 @@
         padding: 20px;
     }
     .container4 article:nth-of-type(2) > div > div div p {
+        font-size: 18px;
+    }
+    .container5 > p {
         font-size: 18px;
     }
 }
@@ -635,5 +649,12 @@
     }
     .container4 article:nth-of-type(2) > div > div div p {
         font-size: 16px;
+    }
+    .container5 h2 br {
+        display: none;
+    }
+    .container5 > p {
+        font-size: 16px;
+        max-width: 100%;
     }
 }
