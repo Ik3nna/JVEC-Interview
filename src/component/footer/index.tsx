@@ -59,8 +59,8 @@ const Footer: React.FC = () => {
             </div>
 
             <div className={styles.service_row}>
-              {contactArr.map((item)=>(
-                <div>
+              {contactArr.map((item, index)=>(
+                <div key={`${item}-${index}`}>
                   <h6>{item.country}</h6>
                   <p>Tel: {item.tel}</p>
                 </div>
@@ -71,8 +71,8 @@ const Footer: React.FC = () => {
 
         <section className={styles.sm_container}>
           <div>
-            {socialIcons.map((item)=>(
-              <img src={item} alt="social-media" />
+            {socialIcons.map((item, index)=>(
+              <img key={`${item}-${index}`} src={item} alt="social-media" />
             ))}
           </div>
 

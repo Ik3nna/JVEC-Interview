@@ -3,30 +3,17 @@ import styles from "./index.module.css"
 import Button from '@/component/button'
 import Slider from '@/component/slider'
 import { motion } from "framer-motion"
+import { offeringsArray, sliderArray, representArray } from '@/data'
 
 // assets 
 import heroSideImg from "@/assets/images/hero-sideImg.svg"
 import gridlines from "@/assets/images/heroGridlines.svg"
 import heroImg from "@/assets/images/hero-img.svg"
 import zigzag from "@/assets/images/zigzag.svg"
-import slider1 from "@/assets/images/hero-slider1.svg"
-import slider2 from "@/assets/images/hero-slider2.svg"
-import slider3 from "@/assets/images/hero-slider3.svg"
-import slider4 from "@/assets/images/hero-slider4.svg"
-import slider5 from "@/assets/images/hero-slider5.svg"
-import slider6 from "@/assets/images/hero-slider6.svg"
-import slider7 from "@/assets/images/hero-slider7.svg"
 import trustedImg from "@/assets/images/trustedImg.png"
 import trustedBlur from "@/assets/images/trustedBlur.svg"
-import offering1 from "@/assets/images/offering1.png"
-import offering2 from "@/assets/images/offering2.png"
-import offering3 from "@/assets/images/offering3.png"
-import offering4 from "@/assets/images/offering4.png"
-import offering5 from "@/assets/images/offering5.png"
-import offering6 from "@/assets/images/offering6.png"
-import offering7 from "@/assets/images/offering7.png"
-import offering8 from "@/assets/images/offering8.png"
-import offering9 from "@/assets/images/offering9.png"
+import representBlur from "@/assets/images/representBlur.svg"
+import representGridlines from "@/assets/images/Grid radial.svg"
 
 const Home: React.FC = () => {
   return (
@@ -120,17 +107,48 @@ const Home: React.FC = () => {
           ))}
         </article>
       </motion.section>
+
+      <motion.section className={styles.container4} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+        <motion.article variants={fadeUpVariant} transition={createTransition(1, 0)}>
+          <motion.h3 variants={fadeUpVariant} transition={createTransition(1, 0.3)}>What we Represent</motion.h3>
+          <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
+            Our relentless pursuit of excellence is the driving force behind our success
+          </motion.p>
+        </motion.article>
+
+        <motion.article variants={fadeUpVariant} transition={createTransition(1, 0.9)}>
+          <motion.p variants={fadeUpVariant} transition={createTransition(1, 1.2)}>
+            Excellence isn’t a goal, it’s our DNA; our relentless pursuit of excellence is 
+            the driving force behind our success. Excellence is our legacy, and we are proud 
+            to carry it forward. Watch the video to see how we are innovating to keep businesses 
+            on top of their games.
+          </motion.p>
+
+          <motion.div variants={fadeUpVariant} transition={createTransition(1, 1.5)}>
+            {representArray.map((item)=>(
+              <motion.div key={item.id} variants={fadeUpVariant} transition={createTransition(1, 1.8)}>
+                <img src={item.img} alt={item.header} />
+                <img src={representBlur} alt="light" />
+                <img src={representGridlines} alt="gridlines" />
+
+                <div>
+                  <h2>{item.header}</h2>
+                  <p>{item.desc}</p>
+                </div> 
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.article>
+      </motion.section>
+
+      <motion.section>
+        ujdkjk
+      </motion.section>
     </main>
   )
 }
 
 export default Home
-
-const sliderArray = [slider1, slider2, slider3, slider4, slider5, slider6, slider7];
-const offeringsArray = [
-  offering1, offering2, offering3, offering4,
-  offering5, offering6, offering7, offering8, offering9
-]
 
 const MotionButton = motion(Button);
 
