@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    row-gap: 60px;
+    row-gap: 150px;
 }
 .hero_container {
     position: relative;   
@@ -118,8 +118,72 @@
 .hc3_img {
     border-radius: 4.79px;
 }
-
-
+.container2 {
+    background: linear-gradient(180deg, rgba(2, 4, 18, 0) 0%, #020412 30.98%);
+    background-image: url('@/assets/images/gridlines.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 90px;
+    position: relative;
+}
+.container2 article:nth-of-type(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+}
+.container h2 {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 100%;
+    max-width: 946px;
+    width: 80%;
+    text-align: center;
+}
+.container2 article:nth-of-type(1) p:nth-of-type(1) {
+    font-size: 24px;
+    line-height: 100%;
+    color: var(--grey1Hex);
+    max-width: 660px;
+    width: 80%;
+    text-align: center;
+}
+.container2 article:nth-of-type(1) p:nth-of-type(2) {
+    text-align: center;
+    font-size: 32px;
+    line-height: 100%;
+    max-width: 1092px;
+    width: 80%;
+    color: var(--grey2Hex);
+    margin-top: 15px;
+}
+.container2 > :not(img:nth-of-type(1)) {
+    position: relative;
+    z-index: 10;
+}
+.container2 > img:nth-of-type(1) {
+    position: absolute;
+}
+.container2 article:nth-of-type(2) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 25px;
+}
+.container2 article:nth-of-type(2) p {
+    font-size: 24px;
+    line-height: 100%;
+    color: var(--grey2Hex);
+    text-align: center;
+    max-width: 1058px;
+}
 
 
 
@@ -134,14 +198,31 @@
     }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        row-gap: 100px;
+    }
     .hc2 {
        margin-bottom: -40px;
     }
     .hc2 img:nth-of-type(2){
        width: 65%;
     }
+    .container2 > img:nth-of-type(1) {
+       top: 50%;
+       transform: translateY(-50%);
+    }
+    .container2 article:nth-of-type(2) p {
+        width: 80%;
+    }
+    .container2 article:nth-of-type(2) img {
+        max-width: 1074px;
+        width: 90%;
+    }
 }
 @media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        row-gap: 70px;
+    }
     .hero_container {
         row-gap: 50px; 
     }
@@ -157,8 +238,39 @@
     .hc2 img:nth-of-type(2){
         width: 50%;
     }
+    .container2 {
+        row-gap: 70px;
+    }
+    .container h2 {
+        font-size: 38px;
+    }
+    .container2 article:nth-of-type(1) p:nth-of-type(1) {
+        font-size: 18px;
+        width: 90%;
+    }
+    .container2 article:nth-of-type(1) p:nth-of-type(2) {
+        font-size: 24px;
+        width: 90%;
+        margin-top: 10px;
+    }
+    .container2 > img:nth-of-type(1) {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 155%;
+    }
+    .container2 article:nth-of-type(2) p {
+        font-size: 18px;
+        width: 90%;
+    }
+    .container2 article:nth-of-type(2) img {
+        max-width: 1074px;
+        width: 95%;
+    }
 }
 @media (max-width: 767px) {
+    .container {
+        row-gap: 30px;
+    }
     .hero_container {
         row-gap: 50px; 
     }
@@ -213,5 +325,39 @@
         left: 5px;
         transform: translateY(-15%);
         font-size: 16px;
+    }
+    .container2 {
+        row-gap: 40px;
+        padding: 40px 0px 0px;
+    }
+    .container h2 {
+        font-size: 24px;
+        max-width: 100%;
+        width: 90%;
+    }
+    .container2 article:nth-of-type(1) p:nth-of-type(1) {
+        font-size: 16px;
+        width: 90%;
+    }
+    .container2 article:nth-of-type(1) p:nth-of-type(2) {
+        font-size: 18px;
+        width: 90%;
+        margin-top: 0px;
+    }
+    .container2 > img:nth-of-type(1) {
+        top: 100%;
+        transform: translateY(-100%);
+        width: 155%;
+    }
+    .container2 article:nth-of-type(2) {
+        row-gap: 15px;
+    }
+    .container2 article:nth-of-type(2) p {
+        font-size: 16px;
+        width: 90%;
+    }
+    .container2 article:nth-of-type(2) img {
+        max-width: 100%;
+        width: 95%;
     }
 }

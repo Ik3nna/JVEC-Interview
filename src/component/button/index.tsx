@@ -5,7 +5,7 @@ import { ButtonProps } from '../componentType'
 const Button: React.FC<ButtonProps> = ({ className, content, onClick }) => {
   return (
     <div className={`${styles.btn} ${className}`} onClick={onClick}>
-        {content}
+       {content}
     </div>
   )
 }
