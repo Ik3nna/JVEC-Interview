@@ -13,8 +13,8 @@ const Slider: React.FC<SliderProps> = ({ sliderArr, slideWidth, imgHeight, imgCl
     return (
         <div className={styles.slider} style={styleVars}>
             <div className={styles.slideTrack}>
-                {sliderArr.map((item)=>(
-                    <div className={styles.slide}>
+                {sliderArr.map((item, index)=>(
+                    <div key={index} className={styles.slide}>
                         <img src={item} className={imgClass} />
                     </div>
                 ))}

@@ -40,7 +40,7 @@
     border-radius: 84.93px;
     padding: 5.66px 14.15px;
     margin-bottom: 25px;
-    animation-delay: 0.2s;
+    animation-delay: 0.3s;
 }
 .hc1 h1 {
     font-weight: 700;
@@ -50,14 +50,14 @@
     max-width: 1000px;
     width: 80%;
     margin: 0px auto;
-    animation-delay: 0.4s;
+    animation-delay: 0.6s;
 }
 .hc1 h3 {
     font-size: 32px;
     line-height: 100%;
     font-weight: 400;
     margin-top: 15px;
-    animation-delay: 0.6s;
+    animation-delay: 0.9s;
     text-align: center;
 }
 .hc1 div,
@@ -74,18 +74,21 @@
     column-gap: 20px;
     animation-delay: 0.8s;
 }
-.btn_container > div {
+.btn_container > div,
+.learn_btn {
     font-size: 24px;
     line-height: 100%;
     padding: 18px 40px;
     border-radius: 37px;
     border: 2px solid var(--purpleBorderHex);
 }
-.btn_container > div:nth-of-type(1) {
+.btn_container > div:nth-of-type(1),
+.learn_btn {
     background: linear-gradient(90deg, #000080 -10%, #4169E1 52.62%, #000080 114%);
     box-shadow: 0px 4px 17.9px 0px #4169E18C;
 }
-.btn_container > div:nth-of-type(1):hover {
+.btn_container > div:nth-of-type(1):hover,
+.learn_btn:hover {
     background: transparent;
     box-shadow: 0px 4px 17.9px 0px #6132B28C;
 }
@@ -184,9 +187,69 @@
     text-align: center;
     max-width: 1058px;
 }
+.container3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+    padding-bottom: 60px;
+    row-gap: 20px;
+}
+.container3 p {
+    max-width: 824px;
+    width: 80%;
+    color: var(--whiteHex);
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+}
+.container3 > article {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    justify-content: space-between;
+    margin-top: 20px;
+    max-width: 1216px;
+    width: 75%;
+    row-gap: 30px;
+}
+.container3 > article img {
+    width: 277px;
+    height: 135px;
+}
+.container3 > article img:nth-child(n+4):nth-child(-n+6) {
+    animation: floatAndPulse 3s ease-in-out infinite;
+    transform: translateY(80px);
+}
 
 
 
+
+
+
+
+@keyframes floatAndPulse {
+    0% {
+        transform: translateY(80px) scale(1);
+    }
+    50% {
+        transform: translateY(72px) scale(1.03);
+    }
+    100% {
+        transform: translateY(80px) scale(1);
+    }
+}
+@keyframes pulseOnly {
+    0% {
+        transform: none; 
+    }
+    50% {
+        transform: scale(1.03); 
+    }
+    100% {
+        transform: none; 
+    }
+}
 @keyframes fadeSlideUp {
     0% {
       opacity: 0;
@@ -256,7 +319,8 @@
     .container2 > img:nth-of-type(1) {
         top: 50%;
         transform: translateY(-50%);
-        width: 155%;
+        height: 900px;
+        width: 150%;
     }
     .container2 article:nth-of-type(2) p {
         font-size: 18px;
@@ -265,6 +329,24 @@
     .container2 article:nth-of-type(2) img {
         max-width: 1074px;
         width: 95%;
+    }
+    .container3 {
+        padding-top: 20px;
+    }
+    .container3 p {
+        font-size: 18px;
+        width: 90%;
+    }
+    .container3 > article {
+        width: 90%;
+        row-gap: 20px;
+    }
+    .container3 > article img {
+        width: 200px;
+        height: auto;
+    }
+    .container3 > article img:nth-child(n+4):nth-child(-n+6) {
+        transform: translateY(60px);
     }
 }
 @media (max-width: 767px) {
@@ -303,7 +385,8 @@
         margin-top: 40px;
         width: 100%;
     }
-    .btn_container > div {
+    .btn_container > div,
+    .learn_btn {
         font-size: 16px;
         width: 100%;
         max-width: 300px;
@@ -360,4 +443,32 @@
         max-width: 100%;
         width: 95%;
     }
+    .container3 {
+        padding-top: 40px;
+        row-gap: 15px;
+        margin-bottom: 0px;
+        padding-bottom: 40px;
+    }
+    .container3 p {
+        font-size: 16px;
+        width: 90%;
+    }
+    .container3 > article {
+        width: 100%;
+        row-gap: 20px;
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+    .container3 > article img {
+        max-width: 100%;
+        width: 90%;
+        height: auto;
+        margin: auto;
+    }
+    .container3 > article img:nth-child(n+4):nth-child(-n+6) {
+        animation: pulseOnly 2s ease-in-out infinite;
+        transform: none;
+    }
+    
 }
