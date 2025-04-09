@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./index.module.css"
 import Button from '@/component/button'
 import Slider from '@/component/slider'
 import { motion } from "framer-motion"
-import { offeringsArray, sliderArray, representArray } from '@/data'
+import { 
+  offeringsArray, 
+  sliderArray, 
+  representArray, 
+  certificationsArray, 
+  trustArray 
+} from '@/data'
 
 // assets 
 import heroSideImg from "@/assets/images/hero-sideImg.svg"
@@ -14,8 +20,59 @@ import trustedImg from "@/assets/images/trustedImg.png"
 import trustedBlur from "@/assets/images/trustedBlur.svg"
 import representBlur from "@/assets/images/representBlur.svg"
 import representGridlines from "@/assets/images/Grid radial.svg"
+import consult from "@/assets/images/consult.svg"
+import collaborate from "@/assets/images/collaborate.svg"
+import delivery from "@/assets/images/delivery.svg"
+import Container from '@/component/container'
+
 
 const Home: React.FC = () => {
+  const [dimensions, setDimensions] = useState({
+    rows: 3,
+    cols: 6
+  })
+  const TOTAL = dimensions.rows * dimensions.cols;
+  const [gridItems, setGridItems] = useState(certificationsArray.slice(0, TOTAL));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGridItems((prev) => {
+        const newItem = certificationsArray[(certificationsArray.indexOf(prev[0]) + TOTAL) % certificationsArray.length];
+        const newGrid = [...prev.slice(1), newItem];
+        return newGrid;
+      });
+    }, 2000); // controls speed
+
+    return () => clearInterval(interval);
+  }, [certificationsArray]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 767) {
+        setDimensions({
+          rows: 6,
+          cols: 3
+        })
+      } else {
+        setDimensions({
+          rows: 3,
+          cols: 6
+        })
+      }
+    };
+
+    // Set the initial size based on the current window width
+    handleResize();
+
+    // Add event listener on window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <main className={styles.container}>
       <section className={styles.hero_container}>
@@ -142,20 +199,92 @@ const Home: React.FC = () => {
       </motion.section>
 
       <motion.section className={styles.container5} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
-        <motion.h2 variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
+        <motion.h2 variants={fadeUpVariant} transition={createTransition(1, 0.2)}>
           Compliance Certifications/<br />Standards We Specialize In
         </motion.h2>
-        <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
+        <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.4)}>
           Elevate Your Organization's Security Posture with Our Compliance/Standards Consulting Services
         </motion.p>
         <MotionButton 
           content="Contact Us"
           variants={fadeUpVariant} 
-          transition={createTransition(1, 0.9)}
+          transition={createTransition(1, 0.6)}
           className={styles.learn_btn}
         />
         <article>
-          
+          <div className={styles.cert_container}>
+            {gridItems.map((item, index) => (
+              <motion.div
+                key={item + index}
+                layout
+                className={styles.certImageWrapper}
+                transition={{ type: 'tween', ease: "easeInOut", delay: 0.3 }}
+              >
+                <img src={item} alt={`cert-${index}`} />
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+            <motion.h2 variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
+              They Trust Us
+            </motion.h2>
+            <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
+              And so can you
+            </motion.p>
+            <motion.div className={styles.trust_container}>
+              {trustArray.map((item, index)=>(
+                <motion.img 
+                  key={index}
+                  src={item} 
+                  alt={`trust-${index}`} 
+                  variants={fadeUpVariant} 
+                  transition={createTransition(1, 0.9)}
+                />
+              ))}
+            </motion.div>
+            
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className={styles.process}>
+              <motion.h2 variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
+                Our Process
+              </motion.h2>
+              <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
+                At KeySystem, we leave you with a lasting impression
+              </motion.p>
+              <div className={styles.process_container}>
+                <motion.div className={`${styles.cards} ${styles.consult}`} variants={fadeUpVariant} transition={createTransition(1, 0.9)}>
+                  <div>
+                    <h3>Strategic Consultation</h3>
+                    <p>We kick off with a strategic consultation to understand your brand, goals, and audience</p>
+                  </div>
+                  <img src={consult} alt="consult" />
+                </motion.div>
+
+                <div>
+                  <motion.div className={styles.cards} variants={fadeLeftVariant} transition={createTransition(1, 1.2)}>
+                    <div>
+                      <h3>Collaboration</h3>
+                      <p>
+                        At KeySystem, we collaborate closely to ensure the end result meets your
+                        expectations and makes you happy
+                      </p>
+                    </div>
+                    <img src={collaborate} alt="collaborate" />
+                  </motion.div>
+
+                  <motion.div  className={styles.cards} variants={fadeRightVariant} transition={createTransition(1, 1.5)}>
+                    <div>
+                      <h3>Delivery</h3>
+                      <p>
+                        Our delivery rate is 100%; our clients deserve nothing less.
+                      </p>
+                    </div>
+                    <img src={delivery} alt="delivery" />
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         </article>
       </motion.section>
     </main>
@@ -169,6 +298,16 @@ const MotionButton = motion(Button);
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 }
+};
+
+const fadeLeftVariant = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0 }
+};
+
+const fadeRightVariant = {
+  hidden: { opacity: 0, x: 30 },
+  visible: { opacity: 1, x: 0 }
 };
 
 const createTransition = (duration: number, delay: number) => ({
