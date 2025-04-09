@@ -103,43 +103,45 @@ const Home: React.FC = () => {
         />
       </section>
 
-      <motion.section className={styles.container2} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
-        <motion.article variants={fadeUpVariant} transition={createTransition(1, 0)}>
-          <motion.h2 variants={fadeUpVariant} transition={createTransition(1, 0.3)}>Why we are  your Trusted Consultant</motion.h2>
-          <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.6)}>Empowering Businesses with Cutting-edge Technology</motion.p>
-          <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.9)}>
+      <section className={styles.container2}>
+        <article>
+          <motion.h2 {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>Why we are  your Trusted Consultant</motion.h2>
+          <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.5)}>Empowering Businesses with Cutting-edge Technology</motion.p>
+          <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
             Excellence isn’t a goal, it’s our DNA; our relentless pursuit of excellence 
             is the driving force behind our success. Excellence is our legacy, and we are 
             proud to carry it forward. 
           </motion.p>
-        </motion.article>
+        </article>
 
         <img src={trustedBlur} alt="light" />
 
-        <motion.article variants={fadeUpVariant} transition={createTransition(1, 1.2)}>
-          <motion.p variants={fadeUpVariant} transition={createTransition(1, 1.5)}>
+        <article>
+          <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
             Watch the video to see how we are innovating to keep businesses on top of their games.
           </motion.p>
           <motion.img 
+            {...defaultMotionProps}
             variants={fadeUpVariant} 
-            transition={createTransition(1, 1.8)} 
+            transition={createTransition(1, 0.5)} 
             src={trustedImg} 
             alt="trusted" 
           />
-        </motion.article>
-      </motion.section>
+        </article>
+      </section>
 
-      <motion.section className={styles.container3} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
-        <motion.h2 variants={fadeUpVariant} transition={createTransition(1, 0.3)}>Our Offerings</motion.h2>
-        <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
+      <section className={styles.container3}>
+        <motion.h2 {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>Our Offerings</motion.h2>
+        <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.5)}>
           Leverage KeySystem’s cutting-edge expertise to transform your business. Our tailored 
           software and cybersecurity solutions drive efficiency, security, and growth. We empower 
           businesses to thrive in the digital age 
         </motion.p>
         <MotionButton 
           content="Learn more"
+          {...defaultMotionProps}
           variants={fadeUpVariant} 
-          transition={createTransition(1, 0.9)}
+          transition={createTransition(1, 0.6)}
           className={styles.learn_btn}
         />
         <article>
@@ -163,27 +165,27 @@ const Home: React.FC = () => {
             />
           ))}
         </article>
-      </motion.section>
+      </section>
 
-      <motion.section className={styles.container4} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
-        <motion.article variants={fadeUpVariant} transition={createTransition(1, 0)}>
-          <motion.h3 variants={fadeUpVariant} transition={createTransition(1, 0.3)}>What we Represent</motion.h3>
-          <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
+      <section className={styles.container4}>
+        <article>
+          <motion.h3 {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>What we Represent</motion.h3>
+          <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.5)}>
             Our relentless pursuit of excellence is the driving force behind our success
           </motion.p>
-        </motion.article>
+        </article>
 
-        <motion.article variants={fadeUpVariant} transition={createTransition(1, 0.9)}>
-          <motion.p variants={fadeUpVariant} transition={createTransition(1, 1.2)}>
+        <article {...defaultMotionProps}>
+          <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
             Excellence isn’t a goal, it’s our DNA; our relentless pursuit of excellence is 
             the driving force behind our success. Excellence is our legacy, and we are proud 
             to carry it forward. Watch the video to see how we are innovating to keep businesses 
             on top of their games.
           </motion.p>
 
-          <motion.div variants={fadeUpVariant} transition={createTransition(1, 1.5)}>
+          <div>
             {representArray.map((item)=>(
-              <motion.div key={item.id} variants={fadeUpVariant} transition={createTransition(1, 1.8)}>
+              <motion.div key={item.id} {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
                 <img src={item.img} alt={item.header} />
                 <img src={representBlur} alt="light" />
                 <img src={representGridlines} alt="gridlines" />
@@ -194,19 +196,20 @@ const Home: React.FC = () => {
                 </div> 
               </motion.div>
             ))}
-          </motion.div>
-        </motion.article>
-      </motion.section>
+          </div>
+        </article>
+      </section>
 
-      <motion.section className={styles.container5} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
-        <motion.h2 variants={fadeUpVariant} transition={createTransition(1, 0.2)}>
+      <section className={styles.container5}>
+        <motion.h2 {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
           Compliance Certifications/<br />Standards We Specialize In
         </motion.h2>
-        <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.4)}>
+        <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.5)}>
           Elevate Your Organization's Security Posture with Our Compliance/Standards Consulting Services
         </motion.p>
         <MotionButton 
           content="Contact Us"
+          {...defaultMotionProps}
           variants={fadeUpVariant} 
           transition={createTransition(1, 0.6)}
           className={styles.learn_btn}
@@ -225,34 +228,35 @@ const Home: React.FC = () => {
             ))}
           </div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
-            <motion.h2 variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
+          <div>
+            <motion.h2 {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
               They Trust Us
             </motion.h2>
-            <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
+            <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.5)}>
               And so can you
             </motion.p>
-            <motion.div className={styles.trust_container}>
+            <div className={styles.trust_container}>
               {trustArray.map((item, index)=>(
                 <motion.img 
                   key={index}
                   src={item} 
                   alt={`trust-${index}`} 
+                  {...defaultMotionProps}
                   variants={fadeUpVariant} 
-                  transition={createTransition(1, 0.9)}
+                  transition={createTransition(1, 0.3)}
                 />
               ))}
-            </motion.div>
+            </div>
             
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className={styles.process}>
-              <motion.h2 variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
+            <div className={styles.process}>
+              <motion.h2 {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
                 Our Process
               </motion.h2>
-              <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
+              <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.5)}>
                 At KeySystem, we leave you with a lasting impression
               </motion.p>
               <div className={styles.process_container}>
-                <motion.div className={`${styles.cards} ${styles.consult}`} variants={fadeUpVariant} transition={createTransition(1, 0.9)}>
+                <motion.div className={`${styles.cards} ${styles.consult}`} {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
                   <div>
                     <h3>Strategic Consultation</h3>
                     <p>We kick off with a strategic consultation to understand your brand, goals, and audience</p>
@@ -261,7 +265,7 @@ const Home: React.FC = () => {
                 </motion.div>
 
                 <div>
-                  <motion.div className={styles.cards} variants={fadeLeftVariant} transition={createTransition(1, 1.2)}>
+                  <motion.div className={styles.cards} {...defaultMotionProps} variants={fadeLeftVariant} transition={createTransition(1, 0.6)}>
                     <div>
                       <h3>Collaboration</h3>
                       <p>
@@ -272,7 +276,7 @@ const Home: React.FC = () => {
                     <img src={collaborate} alt="collaborate" />
                   </motion.div>
 
-                  <motion.div  className={styles.cards} variants={fadeRightVariant} transition={createTransition(1, 1.5)}>
+                  <motion.div  className={styles.cards} variants={fadeRightVariant} {...defaultMotionProps} transition={createTransition(1, 0.6)}>
                     <div>
                       <h3>Delivery</h3>
                       <p>
@@ -283,10 +287,10 @@ const Home: React.FC = () => {
                   </motion.div>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </article>
-      </motion.section>
+      </section>
     </main>
   )
 }
@@ -294,6 +298,12 @@ const Home: React.FC = () => {
 export default Home
 
 const MotionButton = motion(Button);
+
+const defaultMotionProps = {
+  initial: "hidden",
+  whileInView: "visible",
+  viewport: { once: true, amount: 0.3 },
+};
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 30 },
