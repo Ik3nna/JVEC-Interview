@@ -24,7 +24,8 @@ import representGridlines from "@/assets/images/Grid radial.svg"
 import consult from "@/assets/images/consult.svg"
 import collaborate from "@/assets/images/collaborate.svg"
 import delivery from "@/assets/images/delivery.svg"
-import Container from '@/component/container'
+import startedBlur from "@/assets/images/startedBlur.svg"
+import startedBg from "@/assets/images/startedBg.svg"
 
 
 const Home: React.FC = () => {
@@ -176,7 +177,7 @@ const Home: React.FC = () => {
           </motion.p>
         </article>
 
-        <article {...defaultMotionProps}>
+        <article>
           <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.6)}>
             Excellence isn’t a goal, it’s our DNA; our relentless pursuit of excellence is 
             the driving force behind our success. Excellence is our legacy, and we are proud 
@@ -298,7 +299,6 @@ const Home: React.FC = () => {
             <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.5)}>
               Creating a Synergy with global brands
             </motion.p>
-
             <div>
               <div>
               <Slider 
@@ -312,9 +312,41 @@ const Home: React.FC = () => {
               />
               </div>
             </div>
-
           </div>
         </article>
+      </section>
+
+      <section className={styles.container6}>
+        <img src={startedBlur} alt="start-blur" />
+        <div>
+          <div>
+            <motion.h1
+              {...defaultMotionProps}
+              variants={fadeUpVariant} 
+              transition={createTransition(1, 0.2)}
+            >
+              Ready to get started?
+            </motion.h1>
+            <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>Shoot us a Mail</motion.p>
+            <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.4)}>
+              Join numerous corporations, organizations, and businesses as they scale their teams, 
+              tap into new market opportunities and build innovative products with KeySystem Technology
+            </motion.p>
+            <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.5)}>
+              Join thousands of students who are ready to learn new skills or take their career to the 
+              next level by enrolling in one of our training programs today.
+            </motion.p>
+            <MotionButton 
+              content="Send Us a Mail Now"
+              {...defaultMotionProps}
+              variants={fadeUpVariant} 
+              transition={createTransition(1, 0.6)}
+              className={styles.learn_btn}
+            />
+          </div>
+
+          <img src={startedBg} alt="started-bg" />
+        </div>
       </section>
     </main>
   )

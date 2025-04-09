@@ -1,6 +1,6 @@
 .footer {
     background-color: var(--footerHex);
-    padding-bottom: 50px;
+    padding: 50px 0px;
 }
 .container {
     flex-direction: column;
