@@ -86,12 +86,11 @@ src/
 ├── index.css            # Global styles
 └── main.tsx             # Entry point
   ```
-  
+
 ---
 
 ## 📌 Author
 Ikenna Ndukwu
-Frontend Developer
 
 
 
