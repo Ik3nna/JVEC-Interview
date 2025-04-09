@@ -18,38 +18,43 @@ const Header: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
   
-    const handleClick = () => {
+    const handleLogoClick = () => {
       navigate("/home");
     }
+
+    const handleLinkClick = () => {
+        setActive(!active)
+        window.scrollTo(0, 0); 
+    };
 
     return (
         <React.Fragment>
             <header ref={stickyRef} className={`${styles.header} ${sticky && styles.fixedNav} ${active ? styles.active : ""}`}>
                 <Container width='medium' className={styles.container}>
-                    <img src={logo} alt="logo" onClick={handleClick} />
+                    <img src={logo} alt="logo" onClick={handleLogoClick} />
                     
                     <nav className={styles.wrapper}>
                         <ul>
                             {navItems.map((item)=>(
                                 <li key={item.id}>
-                                <Link
-                                    to={item.linkTo} 
-                                    onClick={()=>setActive(!active)} 
-                                    className={location.pathname === item.linkTo ? styles.active_link : ""}
-                                    onMouseEnter={() => item.id === 3 && setHovered(true)}
-                                    onMouseLeave={() => item.id === 3 && setHovered(false)}
-                                >
-                                    {item.item}
-                                    {item.id === 3 && (
-                                        <img src={(location.pathname === "/services" || hovered) ? activeArrowDown : inactiveArrowDown} alt="arrow" />
-                                    )} 
-                                </Link>
+                                    <Link
+                                        to={item.linkTo} 
+                                        onClick={handleLinkClick} 
+                                        className={location.pathname === item.linkTo ? styles.active_link : ""}
+                                        onMouseEnter={() => item.id === 3 && setHovered(true)}
+                                        onMouseLeave={() => item.id === 3 && setHovered(false)}
+                                    >
+                                        {item.item}
+                                        {item.id === 3 && (
+                                            <img src={(location.pathname === "/services" || hovered) ? activeArrowDown : inactiveArrowDown} alt="arrow" />
+                                        )} 
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
 
                         <Button 
-                            content={
+                            children={
                                 <a href='tel: +2348184441404'>
                                     <img src={phone} alt="phone" />
                                     <p>+234 818 444 1404</p>

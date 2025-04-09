@@ -11,6 +11,7 @@ import {
   trustArray, 
   partnerSlideArray
 } from '@/data'
+import { useNavigate } from 'react-router-dom'
 
 // assets 
 import heroSideImg from "@/assets/images/hero-sideImg.svg"
@@ -27,7 +28,6 @@ import delivery from "@/assets/images/delivery.svg"
 import startedBlur from "@/assets/images/startedBlur.svg"
 import startedBg from "@/assets/images/startedBg.svg"
 
-
 const Home: React.FC = () => {
   const [dimensions, setDimensions] = useState({
     rows: 3,
@@ -35,6 +35,12 @@ const Home: React.FC = () => {
   })
   const TOTAL = dimensions.rows * dimensions.cols;
   const [gridItems, setGridItems] = useState(certificationsArray.slice(0, TOTAL));
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    window.scrollTo(0, 0);
+    navigate(`/${path}`)
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -84,9 +90,9 @@ const Home: React.FC = () => {
           <h1>IT Consulting for Forward-thinking Businesses</h1>
           <h3> Driving Digital Transformation, One Solution at a Time</h3>
           <div className={styles.btn_container}>
-            <Button content="Get Started" />
+            <Button children="Get Started" />
 
-            <Button content="Learn More" />
+            <Button children="Learn More" onClick={()=>handleNavigation("about")} />
           </div>
           <img src={heroSideImg} alt="light" />
         </article>
@@ -140,11 +146,12 @@ const Home: React.FC = () => {
           businesses to thrive in the digital age 
         </motion.p>
         <MotionButton 
-          content="Learn more"
+          children="Learn more"
           {...defaultMotionProps}
           variants={fadeUpVariant} 
           transition={createTransition(1, 0.6)}
           className={styles.learn_btn}
+          onClick={()=>handleNavigation("services")}
         />
         <article>
           {offeringsArray.map((item)=>(
@@ -210,11 +217,12 @@ const Home: React.FC = () => {
           Elevate Your Organization's Security Posture with Our Compliance/Standards Consulting Services
         </motion.p>
         <MotionButton 
-          content="Contact Us"
+          children="Contact Us"
           {...defaultMotionProps}
           variants={fadeUpVariant} 
           transition={createTransition(1, 0.6)}
           className={styles.learn_btn}
+          onClick={()=>handleNavigation("contact")}
         />
         <article>
           <div className={styles.cert_container}>
@@ -337,7 +345,7 @@ const Home: React.FC = () => {
               next level by enrolling in one of our training programs today.
             </motion.p>
             <MotionButton 
-              content="Send Us a Mail Now"
+              children="Send Us a Mail Now"
               {...defaultMotionProps}
               variants={fadeUpVariant} 
               transition={createTransition(1, 0.6)}

@@ -4,7 +4,7 @@ import { ButtonProps } from '../componentType'
 
 const Button: React.FC<ButtonProps & React.HTMLAttributes<HTMLDivElement>> = ({
   className,
-  content,
+  children,
   onClick,
   ...rest
 }) => {
@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps & React.HTMLAttributes<HTMLDivElement>> = ({
       onClick={onClick}
       {...rest} // <== forward motion props like `variants`, `transition`, etc.
     >
-      {content}
+      {children}
     </div>
   )
 }
