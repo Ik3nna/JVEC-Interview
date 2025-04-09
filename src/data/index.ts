@@ -45,6 +45,12 @@ import trust8 from "@/assets/images/trust8.svg"
 import trust9 from "@/assets/images/trust9.svg"
 import trust10 from "@/assets/images/trust10.svg"
 import trust11 from "@/assets/images/trust11.svg"
+import partnerSlide1 from "@/assets/images/partnerSlide1.svg"
+import partnerSlide2 from "@/assets/images/partnerSlide2.svg"
+import partnerSlide3 from "@/assets/images/partnerSlide3.svg"
+import partnerSlide4 from "@/assets/images/partnerSlide4.svg"
+import partnerSlide5 from "@/assets/images/partnerSlide5.svg"
+
 
 export const sliderArray = [slider1, slider2, slider3, slider4, slider5, slider6, slider7];
 export const offeringsArray = [
@@ -60,6 +66,10 @@ export const trustArray = [
     trust1, trust2, trust3, trust4,
     trust5, trust6, trust7, trust8,
     trust9, trust10, trust11
+]
+export const partnerSlideArray = [
+    partnerSlide1, partnerSlide2, partnerSlide3,
+    partnerSlide4, partnerSlide5
 ]
 export const representArray = [
     {

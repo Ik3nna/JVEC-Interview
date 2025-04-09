@@ -8,7 +8,8 @@ import {
   sliderArray, 
   representArray, 
   certificationsArray, 
-  trustArray 
+  trustArray, 
+  partnerSlideArray
 } from '@/data'
 
 // assets 
@@ -170,7 +171,7 @@ const Home: React.FC = () => {
       <section className={styles.container4}>
         <article>
           <motion.h3 {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>What we Represent</motion.h3>
-          <motion.p variants={fadeUpVariant} transition={createTransition(1, 0.5)}>
+          <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.5)}>
             Our relentless pursuit of excellence is the driving force behind our success
           </motion.p>
         </article>
@@ -288,6 +289,30 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className={styles.partners}>
+            <motion.h2 {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.3)}>
+              Our Partners
+            </motion.h2>
+            <motion.p {...defaultMotionProps} variants={fadeUpVariant} transition={createTransition(1, 0.5)}>
+              Creating a Synergy with global brands
+            </motion.p>
+
+            <div>
+              <div>
+              <Slider 
+                slideWidth={230.11}
+                imgHeight={91.55}
+                sliderArr={[
+                  ...partnerSlideArray, 
+                  ...partnerSlideArray,
+                  ...partnerSlideArray
+                ]}
+              />
+              </div>
+            </div>
+
           </div>
         </article>
       </section>
