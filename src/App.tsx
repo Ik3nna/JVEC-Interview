@@ -5,6 +5,7 @@ import Footer from "@/component/footer"
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import Loader from "./component/loader"
+import Placeholder from "./pages/placeholder"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -41,6 +42,9 @@ function App() {
 
             <Routes>
               <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<Placeholder title="About" />} />
+              <Route path="/services" element={<Placeholder title="Services" />} />
+              <Route path="/contact" element={<Placeholder title="Contact" />} />
               <Route path="/" element={<Navigate replace to="/home" />} />
             </Routes>
 
