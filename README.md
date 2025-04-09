@@ -73,7 +73,7 @@ This project is a **responsive and interactive landing page** built with **React
 ---
 
 ## 📁 Folder Structure
-
+```bash
 src/
 ├── assets/
 │   ├── icons/           # Icon files
@@ -85,7 +85,8 @@ src/
 ├── App.tsx              # Root component
 ├── index.css            # Global styles
 └── main.tsx             # Entry point
-
+  ```
+  
 ---
 
 ## 📌 Author
