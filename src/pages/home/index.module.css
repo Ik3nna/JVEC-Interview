@@ -338,6 +338,7 @@
     border-radius: 10px;
     max-width: 100%;
     width: 75%;
+    min-height: max-content;
     margin: auto;
 }
 .cert_container img {

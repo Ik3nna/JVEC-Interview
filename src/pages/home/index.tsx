@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from "./index.module.css"
 import Button from '@/component/button'
 import Slider from '@/component/slider'
@@ -29,57 +29,12 @@ import startedBlur from "@/assets/images/startedBlur.svg"
 import startedBg from "@/assets/images/startedBg.svg"
 
 const Home: React.FC = () => {
-  const [dimensions, setDimensions] = useState({
-    rows: 3,
-    cols: 6
-  })
-  const TOTAL = dimensions.rows * dimensions.cols;
-  const [gridItems, setGridItems] = useState(certificationsArray.slice(0, TOTAL));
   const navigate = useNavigate();
 
   const handleNavigation = (path: string) => {
     window.scrollTo(0, 0);
     navigate(`/${path}`)
   }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setGridItems((prev) => {
-        const newItem = certificationsArray[(certificationsArray.indexOf(prev[0]) + TOTAL) % certificationsArray.length];
-        const newGrid = [...prev.slice(1), newItem];
-        return newGrid;
-      });
-    }, 2000); // controls speed
-
-    return () => clearInterval(interval);
-  }, [certificationsArray]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 767) {
-        setDimensions({
-          rows: 6,
-          cols: 3
-        })
-      } else {
-        setDimensions({
-          rows: 3,
-          cols: 6
-        })
-      }
-    };
-
-    // Set the initial size based on the current window width
-    handleResize();
-
-    // Add event listener on window resize
-    window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <main className={styles.container}>
@@ -226,15 +181,15 @@ const Home: React.FC = () => {
         />
         <article>
           <div className={styles.cert_container}>
-            {gridItems.map((item, index) => (
-              <motion.div
-                key={item + index}
-                layout
-                className={styles.certImageWrapper}
-                transition={{ type: 'tween', ease: "easeInOut", delay: 0.3 }}
-              >
-                <img src={item} alt={`cert-${index}`} />
-              </motion.div>
+            {certificationsArray.map((item, index) => (
+              <motion.img 
+                key={index}
+                src={item} 
+                alt={`cert-${index}`}
+                {...defaultMotionProps}
+                variants={fadeUpVariant} 
+                transition={createTransition(1, 0.3)}
+              />
             ))}
           </div>
 
